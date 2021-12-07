@@ -3,6 +3,8 @@
 // const mongoose = require('mongoose');
 // require('dotenv').config();
 import itemRoute from "./api/route.js"
+import Users from './db/user.js'
+import userRouter from './api/users.js'
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
@@ -25,6 +27,8 @@ connection.once('open', () => {
 })
 
 app.use('/api/expense-tracker',itemRoute)
+
+app.use('/users', userRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port : ${port}`);
